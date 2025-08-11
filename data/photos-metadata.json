@@ -1,0 +1,35 @@
+[
+  {
+    "filename": "sample-cardinal.jpg",
+    "title": "Northern Cardinal in Winter",
+    "description": "A vibrant male cardinal perched on a snow-covered branch during the early morning hours. The contrast between the bright red plumage and white snow creates a striking composition.",
+    "camera": "Canon EOS R5",
+    "lens": "400mm f/5.6L",
+    "settings": "f/5.6, 1/500s, ISO 800",
+    "location": "Central Park, New York",
+    "date": "2024-01-15",
+    "tags": ["cardinal", "winter", "snow", "red", "bird"]
+  },
+  {
+    "filename": "example-hummingbird.jpg",
+    "title": "Ruby-throated Hummingbird",
+    "description": "Captured mid-flight as this tiny jewel hovers near a feeder, wings beating at incredible speed. The iridescent throat catches the morning light beautifully.",
+    "camera": "Nikon D850",
+    "lens": "600mm f/4E FL",
+    "settings": "f/4.0, 1/2000s, ISO 1600",
+    "location": "Backyard Garden, Connecticut",
+    "date": "2024-02-20",
+    "tags": ["hummingbird", "flight", "action", "green", "iridescent"]
+  },
+  {
+    "filename": "example-eagle.jpg",
+    "title": "Bald Eagle Portrait",
+    "description": "A majestic bald eagle showcasing the intense gaze and detailed feather patterns. The piercing yellow eyes and sharp beak demonstrate the power of this apex predator.",
+    "camera": "Sony A7R IV",
+    "lens": "800mm f/6.3G",
+    "settings": "f/6.3, 1/1000s, ISO 400",
+    "location": "Alaska Wildlife Reserve",
+    "date": "2024-03-10",
+    "tags": ["eagle", "portrait", "majestic", "predator", "alaska"]
+  }
+]

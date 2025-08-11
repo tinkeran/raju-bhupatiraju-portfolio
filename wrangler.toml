@@ -1,0 +1,45 @@
+name = "raju-bhupatiraju-portfolio"
+main = "src/index.ts"
+compatibility_date = "2024-01-15"
+compatibility_flags = ["nodejs_compat"]
+
+[env.production]
+name = "raju-bhupatiraju-portfolio"
+
+[env.staging]
+name = "raju-bhupatiraju-portfolio"
+main = "src/index.ts"
+compatibility_date = "2024-01-15"
+compatibility_flags = ["nodejs_compat"]
+
+# KV Namespaces for caching API responses
+[[kv_namespaces]]
+binding = "CACHE"
+id = "e89d08ef16e8497a80b6173e09b8a5c6"
+preview_id = "1e3a3599425642408a1354d2e6e68cfc"
+
+# Environment variables
+[vars]
+ENVIRONMENT = "development"
+SITE_NAME = "Raju Bhupatiraju - Portfolio"
+SITE_DESCRIPTION = "Enterprise Applications Leader & Bird Photography Enthusiast"
+LINKEDIN_PROFILE = "https://www.linkedin.com/in/bhupatiraju/"
+PROFILE_PHOTO_URL = "https://raw.githubusercontent.com/tinkeran/raju-bhupatiraju-portfolio/main/public/assets/images/profile-photo.jpg"
+PROFILE_JSON_URL = "https://raw.githubusercontent.com/tinkeran/raju-bhupatiraju-portfolio/main/data/profile.json"
+
+# LinkedIn OAuth Configuration (for live LinkedIn data integration)
+SITE_URL = "http://localhost:8787"
+# Note: OAuth credentials should be set via Cloudflare Workers dashboard for security
+LINKEDIN_REDIRECT_URI = ""
+
+# GitHub Photos Configuration
+GITHUB_USERNAME = "tinkeran"
+GITHUB_PHOTOS_REPO = "raju-bhupatiraju-portfolio"
+GITHUB_PHOTOS_PATH = "public/photos"
+GITHUB_PHOTOS_METADATA_PATH = "data/photos-metadata.json"
+
+# Secrets (to be set via wrangler secret put)
+# LINKEDIN_CLIENT_SECRET (OAuth Client Secret - REQUIRED for LinkedIn integration)
+# LINKEDIN_API_KEY (Legacy - deprecated in favor of OAuth)
+# GOOGLE_PHOTOS_API_KEY
+# GOOGLE_PHOTOS_CLIENT_SECRET (OAuth Client Secret - REQUIRED for Google Photos integration)
