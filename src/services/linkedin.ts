@@ -14,16 +14,16 @@ export class LinkedInService {
 
   async getProfile(): Promise<ApiResponse<LinkedInProfile>> {
     try {
-      // Try to get cached data first
-      const cached = await this.getCachedProfile();
-      if (cached) {
-        return {
-          success: true,
-          data: cached,
-          cached: true,
-          cacheExpiry: new Date(Date.now() + this.cacheExpiry).toISOString()
-        };
-      }
+      // TEMPORARILY DISABLE CACHE TO FORCE FRESH DATA
+      // const cached = await this.getCachedProfile();
+      // if (cached) {
+      //   return {
+      //     success: true,
+      //     data: cached,
+      //     cached: true,
+      //     cacheExpiry: new Date(Date.now() + this.cacheExpiry).toISOString()
+      //   };
+      // }
 
       // Priority 1: Try LinkedIn OAuth API if configured
       if (this.oauthService.isConfigured()) {
@@ -59,11 +59,18 @@ export class LinkedInService {
       // Priority 2: Try PROFILE_JSON_URL if configured
       if (this.env.PROFILE_JSON_URL) {
         try {
+          console.log('Fetching profile from:', this.env.PROFILE_JSON_URL);
           const resp = await fetch(this.env.PROFILE_JSON_URL, {
-            headers: { 'accept': 'application/json' },
+            headers: { 
+              'accept': 'application/json',
+              'Cache-Control': 'no-cache',
+              'Pragma': 'no-cache'
+            },
           });
+          console.log('GitHub fetch response status:', resp.status);
           if (resp.ok) {
             const remote = (await resp.json()) as LinkedInProfile;
+            console.log('Successfully loaded profile from GitHub, first experience start date:', remote.experience?.[0]?.startDate);
             // Ensure profile photo fallback is applied if missing
             if (!remote.profilePicture) {
               remote.profilePicture = this.env.PROFILE_PHOTO_URL;
@@ -76,6 +83,8 @@ export class LinkedInService {
         } catch (e) {
           console.warn('Failed loading PROFILE_JSON_URL, falling back to static profile', e);
         }
+      } else {
+        console.log('PROFILE_JSON_URL not configured, using static profile');
       }
 
       // Priority 3: Fallback to static data

@@ -476,43 +476,7 @@ app.get('/', (c) => {
         </div>
     </section>
 
-    <!-- Quick Links Section -->
-    <section class="section bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card card-custom h-100">
-                        <div class="card-body text-center p-4">
-                            <i class="fas fa-briefcase fa-3x text-primary mb-3"></i>
-                            <h4 class="card-title">Professional Resume</h4>
-                            <p class="card-text">Explore my professional journey, experience, and achievements in enterprise applications leadership.</p>
-                            <a href="/resume" class="btn btn-primary">View Resume</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card card-custom h-100">
-                        <div class="card-body text-center p-4">
-                            <i class="fas fa-camera fa-3x text-primary mb-3"></i>
-                            <h4 class="card-title">Bird Photography</h4>
-                            <p class="card-text">Discover my passion for bird photography with a curated collection of nature's most beautiful creatures.</p>
-                            <a href="#photography" class="btn btn-primary">View Gallery</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card card-custom h-100">
-                        <div class="card-body text-center p-4">
-                            <i class="fas fa-code fa-3x text-primary mb-3"></i>
-                            <h4 class="card-title">Tinker Projects</h4>
-                            <p class="card-text">Check out my latest application projects and innovative solutions built with modern technologies.</p>
-                            <a href="#projects" class="btn btn-primary">View Tinker Projects</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Footer -->
     <footer class="footer">
@@ -527,7 +491,7 @@ app.get('/', (c) => {
                         <a href="${c.env?.LINKEDIN_PROFILE || 'https://www.linkedin.com/in/bhupatiraju/'}" target="_blank">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="https://github.com/rajubhupatiraju" target="_blank">
+                        <a href="https://github.com/tinkeran" target="_blank">
                             <i class="fab fa-github"></i>
                         </a>
                     </div>
@@ -1410,8 +1374,8 @@ app.get('/photography', async (c) => {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bird Photography - Raju Bhupatiraju</title>
-    <meta name="description" content="Explore Raju Bhupatiraju's passion for bird photography - capturing the beauty and diversity of nature through stunning wildlife photography.">
+    <title>Photography - Raju Bhupatiraju</title>
+    <meta name="description" content="Explore Raju Bhupatiraju's photography portfolio - capturing the beauty and diversity of nature through stunning bird photography and landscape photography.">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
@@ -1610,6 +1574,107 @@ app.get('/photography', async (c) => {
             transform: translateY(-2px);
         }
         
+        /* Modern Filter Chips Styles */
+        .filter-controls {
+            background: white !important;
+            border: 1px solid #e5e7eb !important;
+            border-radius: 16px !important;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+        }
+        
+        .filter-group {
+            margin-bottom: 1rem;
+        }
+        
+        .filter-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            min-width: 80px;
+        }
+        
+        .filter-chips {
+            display: inline-flex;
+            flex-wrap: wrap;
+            gap: 0.375rem;
+            align-items: center;
+        }
+        
+        .filter-chip {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            background: #f3f4f6;
+            border: 1px solid transparent;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #374151;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        
+        .filter-chip:hover {
+            background: #e5e7eb;
+            color: #1f2937;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .filter-chip.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            box-shadow: 0 2px 8px rgba(30, 58, 138, 0.3);
+        }
+        
+        .filter-chip.active:hover {
+            background: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .filter-chip i {
+            font-size: 0.625rem;
+            margin-right: 0.25rem;
+        }
+        
+        @media (min-width: 768px) {
+            .filter-group {
+                display: flex;
+                align-items: flex-start;
+                gap: 1rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .filter-label {
+                margin-bottom: 0;
+                flex-shrink: 0;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .filter-chips {
+                justify-content: flex-start;
+            }
+            
+            .filter-chip {
+                font-size: 0.7rem;
+                padding: 0.2rem 0.6rem;
+            }
+            
+            .filter-chip i {
+                font-size: 0.6rem;
+                margin-right: 0.2rem;
+            }
+        }
+        
         @media (max-width: 768px) {
             .hero-photography h1 {
                 font-size: 2.5rem;
@@ -1674,7 +1739,7 @@ app.get('/photography', async (c) => {
     <section class="hero-photography">
         <div class="container">
             <div data-aos="fade-up">
-                <h1 class="font-display">Bird Photography</h1>
+                <h1 class="font-display">Photography</h1>
                 <p class="lead">Capturing the beauty and diversity of nature's most magnificent creatures</p>
                 <p>Through my lens, I explore the fascinating world of birds - from majestic raptors to delicate songbirds, each photograph tells a story of nature's incredible artistry.</p>
             </div>
@@ -1683,17 +1748,16 @@ app.get('/photography', async (c) => {
 
 
 
+
+
     <!-- Gallery Section -->
-    <section class="gallery-section">
+    <section class="py-5">
         <div class="container">
-            <h2 class="section-title font-display" data-aos="fade-up">Featured Gallery</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">A curated selection of my favorite bird photography captures</p>
-            
-            <div class="row">
+            <div class="row g-4">
                 ${photos.map((photo, index) => {
-                  const photoUrl = photo.baseUrl; // Direct GitHub URL
-                  const title = photo.title;
-                  const camera = photo.metadata.camera || 'Camera info unavailable';
+                  const photoUrl = photo.baseUrl;
+                  const title = photo.title || 'Untitled';
+                  const camera = photo.metadata.camera || 'Camera unavailable';
                   const settings = photo.metadata.settings || 'Settings unavailable';
                   const date = photo.metadata.date ? new Date(photo.metadata.date).toLocaleDateString() : 'Date unavailable';
                   
@@ -1705,7 +1769,7 @@ app.get('/photography', async (c) => {
                         <div class="photo-overlay">
                           <div class="photo-info">
                             <h5>${title}</h5>
-                            <p class="mb-2">Captured on ${date}</p>
+
                             <div class="photo-meta">
                               <small><i class="fas fa-camera"></i> ${camera}</small><br>
                               <small><i class="fas fa-cog"></i> ${settings}</small><br>
@@ -1809,7 +1873,8 @@ app.get('/photography', async (c) => {
             document.getElementById('photoModalLabel').textContent = photo.title;
             document.getElementById('modalImage').src = photo.baseUrl;
             document.getElementById('modalImage').alt = photo.title;
-            document.getElementById('modalDate').textContent = \`Captured on \${new Date(photo.metadata.date).toLocaleDateString()}\`;
+            // Date removed per user request
+            document.getElementById('modalDate').textContent = '';
             
             const metaHtml = \`
                 <small><i class="fas fa-camera"></i> \${photo.metadata.camera || 'Camera info unavailable'}</small><br>
@@ -1996,6 +2061,8 @@ app.get('/photography', async (c) => {
                 });
             }
         });
+        
+
         
         AOS.init({
             duration: 800,
